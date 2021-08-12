@@ -40,7 +40,7 @@ export interface PaginationOptions {
      */
     customFilter?(interaction: ButtonInteraction): boolean;
 }
-export type ButtonNames = "first" | "previous" | "close" | "next" | "last" ;
+export type ButtonNames = "first" | "previous" | "number" | "next" | "last" ;
 
 export interface Button {
     name: ButtonNames;
