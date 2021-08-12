@@ -5,16 +5,16 @@ const discord_js_1 = require("discord.js");
 const defaultEmojis = {
     first: "⬅️",
     previous: "◀️",
+    number: "❌",
     next: "▶️",
     last: "➡️",
-    number: "❎",
 };
 const defaultStyles = {
     first: "PRIMARY",
     previous: "PRIMARY",
+    number: "DANGER",
     next: "PRIMARY",
     last: "PRIMARY",
-    number: "DANGER",
 };
 const pagination = async (options) => {
     const { message, embeds, button, time, max, customFilter, fastSkip, pageTravel, } = options;
@@ -54,9 +54,9 @@ const pagination = async (options) => {
         const embed = embeds[currentPage - 1];
         const newEmbed = new discord_js_1.MessageEmbed(embed);
         if (embed?.footer?.text) {
-            return newEmbed.setFooter(`${embed.footer.text} - Page ${currentPage} of ${embeds.length}`, embed.footer.iconURL);
+            return newEmbed.setFooter(`${embed.footer.text} - Pagina ${currentPage} de ${embeds.length}`, embed.footer.iconURL);
         }
-        return newEmbed.setFooter(`Page ${currentPage} of ${embeds.length}`);
+        return newEmbed.setFooter(`Pagina ${currentPage} de ${embeds.length}`);
     };
     const initialMessage = await message.channel.send({
         embeds: [changeFooter()],
@@ -90,12 +90,12 @@ const pagination = async (options) => {
             currentPage = 1;
         if (id === "previous")
             currentPage--;
+        if (id === "number")
+            await numberTravel();
         if (id === "next")
             currentPage++;
         if (id === "last")
             currentPage = embeds.length;
-        if (id === "number")
-            await numberTravel();
         initialMessage.edit({
             embeds: [changeFooter()],
             components: components(),
