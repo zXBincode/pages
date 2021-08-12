@@ -1,15 +1,15 @@
 {
-    "name": "reconlx",
+    "name": "xeropages",
     "version": "2.0.0",
     "main": "dist/index.js",
     "license": "MIT",
     "author": {
-        "name": "reconlx"
+        "name": "Another man#3012"
     },
     "repository": {
-        "url": "https://github.com/reconlx/reconlx-api"
+        "url": "https://github.com/zXBincode/pages"
     },
-    "homepage": "https://reconlx.github.io/reconlx-api/",
+    "homepage": "https://github.com/zXBincode/pages",
     "engines": {
         "node": ">=16.6.0"
     },
